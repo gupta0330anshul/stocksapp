@@ -3,9 +3,9 @@ import { Container, Nav, Navbar } from 'react-bootstrap'
 
 function Header() {
   return (
-    <header>
+
     <Navbar expand="sm" collapseOnSelect>
-      {/* <Container fluid="sm"> */}
+      <Container fluid="sm">
         <Navbar.Brand href="/">Stocks App</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -14,9 +14,9 @@ function Header() {
             <Nav.Link href="/login"><i className='fas fa-user' />Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      {/* </Container> */}
+      </Container>
     </Navbar>
-    </header>
+
   )
 }
 

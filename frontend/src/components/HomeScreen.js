@@ -1,21 +1,14 @@
-import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import StocksList from './StocksList'
-import Chart from './Chart'
+import React from "react";
+import { Container } from "react-bootstrap";
 
-function HomeScreen({name}) {
+import StocksList from "./StocksList";
+
+function HomeScreen() {
   return (
-
-    <Container fluid="true">
-    {console.log({name})}
-    <Row>
-        <StocksList />
-        <Chart stock={`${name}`} />
-    </Row>
+    <Container>
+      <StocksList />
     </Container>
-
-
-  )
+  );
 }
 
-export default HomeScreen
+export default HomeScreen;

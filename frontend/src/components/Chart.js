@@ -1,15 +1,23 @@
-import React from 'react'
-import { Col } from 'react-bootstrap'
-import stocks from '../stocks'
+import React from "react";
+import { Row } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
-function Chart({ name }) {
-    const stockName = stocks.find((p) => p.name === name)
+
+function Chart() {
+  const { name } = useParams();
+
+  // const stockName = stocks.find((p) => p.name === name);
   return (
-    <Col >
-        {console.log({stockName})}
-        <img src={`require('../charts_weekly/${stockName}.png')`} alt="stocks" width="1400px" />
-    </Col>
-  )
+
+      <Row>
+        <img
+          src={require(`../assets/charts_weekly/${name}.png`)}
+          alt="stocks"
+          width={"1800px"}
+        />
+      </Row>
+
+  );
 }
 
-export default Chart
+export default Chart;
