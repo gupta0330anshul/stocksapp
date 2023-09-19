@@ -2,13 +2,13 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 
-import StocksList from "./StocksList";
+import StocksChart from "./StocksChart";
 
 const StockScreen = () => {
 
   return (
     <>
-      <StocksList />
+      <StocksChart />
       {/* <Chart stock={`${name}`} /> */}
     </>
   );

@@ -4,7 +4,6 @@ import './index.css';
 import './bootstrap.css'
 import App from './App';
 import Holding from './components/Holding';
-import StocksList from './components/StocksList';
 
 
 import { RouterProvider } from 'react-router-dom';

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Carousel } from "react-bootstrap";
-import { Row, Col, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Carousel, Container } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import stocks from "../stocks";
 
 function filterStocks(searchTxt, stocks) {
@@ -13,23 +12,16 @@ function filterStocks(searchTxt, stocks) {
     img.src = require(`../assets/charts_weekly/${stock.name}.png`);
     }
     catch (err) {
-      // console.log(stock.name + " not found");
+
       filteredStocks.splice(index, 1);
     }
-    // img.onload = () => {
-    //   // console.log("loaded");
-    // };
-    // img.onerror = () => {
-    //   // console.log("error");
-    //   filteredStocks.splice(index, 1);
-    // };
   }
   );
   return filteredStocks;
 
 }
 
-function StocksList() {
+function StocksChart() {
   const [searchTxt, setSearchTxt] = useState("");
   const [filteredStocks, setFilteredStocks] = useState(filterStocks("", stocks));
 
@@ -39,6 +31,7 @@ function StocksList() {
 
   return (
     <>
+    <Container>
       <Row>
         <Col className="search-container" xs={2}>
           <input
@@ -65,9 +58,11 @@ function StocksList() {
           </button>
         </Col>
       </Row>
+      </Container>
       <br />
       <br />
-      <Row>
+
+      <Row >
       <Carousel controls={true} indicators={true} interval={null} variant="dark">
         {filteredStocks.map((stock) => (
 
@@ -79,7 +74,8 @@ function StocksList() {
                   require(`../assets/charts_weekly/${stock.name}.png`)
                 }
                 alt={`${stock.name}`}
-                width="1200px"
+                width="90%"
+                height="750px"
               />
             </Carousel.Item>
 
@@ -90,8 +86,9 @@ function StocksList() {
         ))}
         </Carousel>
       </Row>
+
     </>
   );
 }
 
-export default StocksList;
+export default StocksChart;

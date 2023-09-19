@@ -1,13 +1,13 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-import StocksList from "./StocksList";
+import StocksChart from "./StocksChart";
 
 function HomeScreen() {
   return (
-    <Container>
-      <StocksList />
-    </Container>
+    // <Container>
+      <StocksChart />
+    // </Container>
   );
 }
 
