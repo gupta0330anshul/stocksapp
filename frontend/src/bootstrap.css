@@ -5920,7 +5920,7 @@ textarea.form-control-lg {
   }
 }
 .carousel-indicators .active {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .carousel-caption {
