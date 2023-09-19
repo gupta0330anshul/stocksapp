@@ -1,12 +1,11 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import StockScreen from "./StockScreen";
 
-import StocksChart from "./StocksChart";
 
 function HomeScreen() {
   return (
     // <Container>
-      <StocksChart />
+      <StockScreen />
     // </Container>
   );
 }

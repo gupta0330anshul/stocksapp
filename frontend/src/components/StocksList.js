@@ -2,6 +2,8 @@ import React from 'react'
 import { Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import stocks from "../stocks.js";
+import { Link } from "react-router-dom";
+
 
 export function filterStocks(searchTxt, stocks) {
     const filteredStocks = stocks.filter((stock) => stock?.name.includes(searchTxt));
@@ -21,10 +23,21 @@ export function filterStocks(searchTxt, stocks) {
 
   }
 
-const SearchStock = () => {
+
+const StocksList = () => {
+  const [searchTxt, setSearchTxt] = useState("");
+  const [filteredStocks, setFilteredStocks] = useState(stocks);
+
+  useEffect(() => {
+    setFilteredStocks(filterStocks(searchTxt, stocks));
+  } , [searchTxt]);
+
+
+
   return (
+    <>
     <Row>
-    <Col className="search-container" xs={2}>
+    <Col className="search-container">
       <input
         type="text"
         placeholder="Search.."
@@ -49,7 +62,19 @@ const SearchStock = () => {
       </button>
     </Col>
   </Row>
+  <Row>
+        {
+          filteredStocks.map((stock) => (
+              <Link to={`/stock/${stock?.name}`} className="px-3" key={stock.name}>
+                {stock.name}
+              </Link>
+
+          ))
+        }
+        <br />
+  </Row>
+  </>
   )
 }
 
-export default SearchStock
+export default StocksList
